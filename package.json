@@ -1,15 +1,15 @@
 {
-  "name": "ignite-cli",
+  "name": "firena-cli",
   "version": "10.2.0",
   "description": "Infinite Red's hottest boilerplate for React Native.",
   "bin": {
-    "ignite": "bin/ignite",
-    "ignite-cli": "bin/ignite"
+    "firena": "bin/ignite",
+    "firena-cli": "bin/ignite"
   },
   "preferGlobal": true,
   "license": "MIT",
-  "repository": "infinitered/ignite",
-  "homepage": "https://github.com/infinitered/ignite",
+  "repository": "infinitered/firena",
+  "homepage": "https://github.com/infinitered/firena",
   "files": [
     "boilerplate",
     "build",
@@ -20,7 +20,7 @@
   "author": {
     "name": "Infinite Red",
     "email": "npm@infinite.red",
-    "url": "https://github.com/infinitered/ignite"
+    "url": "https://github.com/infinitered/firena"
   },
   "scripts": {
     "compile": "tsc -p .",
@@ -39,8 +39,8 @@
     "ci:publish": "yarn build && yarn semantic-release && yarn clean",
     "semantic-release": "semantic-release",
     "clean": "rm -drf ./build ./boilerplate/.gitignore.template ./boilerplate/node_modules ./boilerplate/ios/build/ ./boilerplate/ios/Pods/ ./boilerplate/android/app/build ./boilerplate/ios/.xcode.env.local",
-    "ignite-cli:dev": "node bin/ignite",
-    "ignite-cli:prod": "wrap () { node bin/ignite \"$@\" --compiled-build | cat; }; wrap"
+    "firena-cli:dev": "node bin/ignite",
+    "firena-cli:prod": "wrap () { node bin/ignite \"$@\" --compiled-build | cat; }; wrap"
   },
   "engines": {
     "node": "^18.18.0 || >=20.0.0"

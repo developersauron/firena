@@ -65,7 +65,7 @@ interface UseAppThemeValue {
   themeContext: ThemeContexts
   // A function to apply the theme to a style object.
   // See examples in the components directory or read the docs here:
-  // https://docs.infinite.red/ignite-cli/boilerplate/app/utils/
+  // https://docs.infinite.red/firena-cli/boilerplate/app/utils/
   themed: <T>(styleOrStyleFn: ThemedStyle<T> | StyleProp<T> | ThemedStyleArray<T>) => T
 }
 

@@ -2,24 +2,20 @@
  * This Api class lets you define an API endpoint and methods to request
  * data and process it.
  *
- * See the [Backend API Integration](https://docs.infinite.red/ignite-cli/boilerplate/app/services/#backend-api-integration)
+ * See the [Backend API Integration](https://docs.infinite.red/firena-cli/boilerplate/app/services/#backend-api-integration)
  * documentation for more details.
  */
-import {
-  ApiResponse, // @demo remove-current-line
-  ApisauceInstance,
-  create,
-} from "apisauce"
+import axios, { AxiosInstance, AxiosResponse } from "axios"
 import Config from "../../config"
-import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem" // @demo remove-current-line
+import { GeneralApiProblem, getGeneralApiProblem } from "./apiProblem"
 import type {
   ApiConfig,
-  ApiFeedResponse, // @demo remove-current-line
+  ApiFeedResponse,
 } from "./api.types"
-import type { EpisodeSnapshotIn } from "../../models/Episode" // @demo remove-current-line
+import type { EpisodeSnapshotIn } from "../../models/Episode"
 
 /**
- * Configuring the apisauce instance.
+ * Configuring the axios instance.
  */
 export const DEFAULT_API_CONFIG: ApiConfig = {
   url: Config.API_URL,
@@ -31,7 +27,7 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
  * various requests that you need to call from your backend API.
  */
 export class Api {
-  apisauce: ApisauceInstance
+  axiosInstance: AxiosInstance
   config: ApiConfig
 
   /**
@@ -39,7 +35,7 @@ export class Api {
    */
   constructor(config: ApiConfig = DEFAULT_API_CONFIG) {
     this.config = config
-    this.apisauce = create({
+    this.axiosInstance = axios.create({
       baseURL: this.config.url,
       timeout: this.config.timeout,
       headers: {
@@ -48,18 +44,17 @@ export class Api {
     })
   }
 
-  // @demo remove-block-start
   /**
    * Gets a list of recent React Native Radio episodes.
    */
   async getEpisodes(): Promise<{ kind: "ok"; episodes: EpisodeSnapshotIn[] } | GeneralApiProblem> {
     // make the api call
-    const response: ApiResponse<ApiFeedResponse> = await this.apisauce.get(
+    const response: AxiosResponse<ApiFeedResponse> = await this.axiosInstance.get(
       `api.json?rss_url=https%3A%2F%2Ffeeds.simplecast.com%2FhEI_f9Dx`,
     )
 
     // the typical ways to die when calling an api
-    if (!response.ok) {
+    if (response.status !== 200) {
       const problem = getGeneralApiProblem(response)
       if (problem) return problem
     }
@@ -82,7 +77,6 @@ export class Api {
       return { kind: "bad-data" }
     }
   }
-  // @demo remove-block-end
 }
 
 // Singleton instance of the API for convenience
