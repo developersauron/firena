@@ -1,15 +1,15 @@
 {
   "name": "firena-cli",
   "version": "10.2.0",
-  "description": "Infinite Red's hottest boilerplate for React Native.",
+  "description": "Mehmet Fışkındal's hottest boilerplate for React Native.",
   "bin": {
-    "firena": "bin/ignite",
-    "firena-cli": "bin/ignite"
+    "firena": "bin/firena",
+    "firena-cli": "bin/firena"
   },
   "preferGlobal": true,
   "license": "MIT",
-  "repository": "infinitered/firena",
-  "homepage": "https://github.com/infinitered/firena",
+  "repository": "developersauron/firena",
+  "homepage": "https://github.com/developersauron/firena",
   "files": [
     "boilerplate",
     "build",
@@ -18,9 +18,9 @@
     "template.config.js"
   ],
   "author": {
-    "name": "Infinite Red",
-    "email": "npm@infinite.red",
-    "url": "https://github.com/infinitered/firena"
+    "name": "Mehmet Fışkındal",
+    "email": "developersailor@gmail.com",
+    "url": "https://github.com/developersauron/firena"
   },
   "scripts": {
     "compile": "tsc -p .",

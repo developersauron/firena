@@ -1,6 +1,6 @@
-# Contributing to Ignite CLI
+# Contributing to Firena CLI
 
-We welcome all contributors to Ignite CLI! This contributing guide will help you get up and running to submit your first pull request.
+We welcome all contributors to Firena CLI! This contributing guide will help you get up and running to submit your first pull request.
 
 Before submitting a pull request, you will want to make sure that your branch meets the following requirements:
 
@@ -28,11 +28,11 @@ _Working on Ignite CLI requires Yarn v1._
 Test it out:
 
 ```sh
-$ ignite --version
+$ firena --version
 <current version here>
-$ which ignite
-/usr/local/bin/ignite
-$ ignite new UberForHeadLice
+$ which firena
+/usr/local/bin/firena
+$ firena new UberForHeadLice
 ...
 ```
 
